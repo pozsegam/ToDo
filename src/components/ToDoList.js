@@ -1,11 +1,18 @@
-import { useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import ToDo from "./Todo";
 
-function ToDoList({ todos }) {
+function ToDoList({ todos, handleToggle }) {
   return (
     <div className="list-container">
       {todos.map((todo) => {
-        return <ToDo task={todo.task} complete={todo.complete} />;
+        return (
+          <ToDo
+            handleToggle={handleToggle}
+            task={todo.task}
+            complete={todo.complete}
+            id={todo.id}
+          />
+        );
       })}
     </div>
   );
